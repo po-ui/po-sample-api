@@ -1,7 +1,7 @@
 /**
  * Heroes interface
  */
-export class Hero {
+export interface Hero {
   value: number;
 
   label: string;

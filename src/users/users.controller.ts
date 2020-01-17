@@ -2,7 +2,9 @@ import { Controller, Post, Body, Query, HttpCode } from '@nestjs/common';
 
 import { PasswordRecoveryService } from './password-recovery.service';
 import { AuthenticationService } from './authentication.service';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('users')
 @Controller('users/')
 export class UsersController {
 

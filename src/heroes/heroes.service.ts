@@ -2,7 +2,7 @@ import { Injectable, HttpException } from '@nestjs/common';
 
 import { HEROES } from './heroes.data';
 
-import { Hero } from './hero.interface';
+import { Hero } from './interfaces/hero.interface';
 
 @Injectable()
 export class HeroesService {

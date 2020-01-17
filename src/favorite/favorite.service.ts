@@ -1,10 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 
-export const resultError = {
-  code: '404',
-  message: 'Serviço de favoritos não encontrado',
-  detailedMessage: 'Servidor não encontrado ou fora do ar, tente mais tarde. (Ambiente de teste)'
-};
+import { SaveFavoriteDto } from './dto/save-favorite.dto';
 
 @Injectable()
 export class FavoriteService {
@@ -13,7 +9,7 @@ export class FavoriteService {
     return Math.floor((Math.random()) + 0.2) ? 404 : 200;
   }
 
-  getFavorite(url: string, body: any) {
+  getFavorite(url: string) {
 
     const isFavorite = url !== undefined ? url : Math.floor((Math.random()) + 0.5) ? false : true;
 
@@ -22,11 +18,16 @@ export class FavoriteService {
       url
     };
 
-    return this.code === 200 ? resultSuccess : resultError;
+    try {
+      return resultSuccess;
+    } catch {
+      throw new NotFoundException('Serviço de favoritos não encontrado');
+    }
+
   }
 
-  saveFavorite(body: any) {
-    return this.code === 200 ? body : resultError;
+  saveFavorite(body: SaveFavoriteDto) {
+    return body;
   }
 
 }
