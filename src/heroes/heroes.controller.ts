@@ -9,12 +9,16 @@ import {
 } from '@nestjs/common';
 
 import { HeroesService } from './heroes.service';
-import { Hero } from './hero.interface';
+import { Hero } from './interfaces/hero.interface';
+import { CreateHeroDto } from './dto/create-hero.dto';
+import { ApiTags, ApiParam, ApiQuery } from '@nestjs/swagger'
 
+@ApiTags('heroes')
 @Controller('heroes')
 export class HeroesController {
   constructor(private readonly heroesService: HeroesService) {}
 
+  @ApiQuery({name: 'filter'})
   @Get()
   async findByFilter(
     @Query('filter') filter?,
@@ -30,6 +34,7 @@ export class HeroesController {
     return await this.heroesService.getFilterByNickname(heroNickname);
   }
 
+  @ApiParam({name: 'heroNickname'})
   @Get('nickname/:heroNickname')
   async findByNickname(@Param('heroNickname') heroNickname): Promise<Hero> {
     return await this.heroesService.getByNickname(heroNickname);
@@ -41,8 +46,8 @@ export class HeroesController {
   }
 
   @Post()
-  async addHero(@Body() createHero: Hero) {
-    return await this.heroesService.add(createHero);
+  async addHero(@Body() createHeroDto: CreateHeroDto): Promise<Hero> {
+    return await this.heroesService.add(createHeroDto);
   }
 
   @Delete()
