@@ -10,20 +10,17 @@ export class FavoriteService {
   }
 
   getFavorite(url: string) {
-
-    const isFavorite = url !== undefined ? url : Math.floor((Math.random()) + 0.5) ? false : true;
-
-    const resultSuccess = {
-      isFavorite,
-      url
-    };
-
     try {
+      const isFavorite = url !== undefined ? url : Math.floor((Math.random()) + 0.5) ? false : true;
+
+      const resultSuccess = {
+        isFavorite,
+        url
+      };
       return resultSuccess;
-    } catch {
+    } catch(error) {
       throw new NotFoundException('Serviço de favoritos não encontrado');
     }
-
   }
 
   saveFavorite(body: SaveFavoriteDto) {
