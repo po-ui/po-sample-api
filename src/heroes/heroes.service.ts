@@ -1,4 +1,4 @@
-import { Injectable, HttpException } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 
 import { HEROES } from './heroes.data';
 
@@ -12,21 +12,21 @@ export class HeroesService {
   add(hero: Hero): Promise<any> {
     return new Promise(resolve => {
       this.heroes.push(hero);
-      resolve(this.heroes);
+      resolve(hero);
     });
   }
 
-  delete(heroId): Promise<any> {
-    const id = Number(heroId);
+  delete(value: string): Promise<any> {
+    const id = Number(value);
     return new Promise(resolve => {
       const index = this.heroes.findIndex(hero => hero.value === id);
 
       if (index === -1) {
-        throw new HttpException('Hero does not exist!', 404);
+        throw new NotFoundException('Hero does not exist!');
       }
 
-      this.heroes.splice(1, index);
-      resolve(this.heroes);
+      this.heroes.splice(index, 1);
+      resolve({message: 'Hero removido com sucesso'});
     });
   }
 
@@ -38,10 +38,10 @@ export class HeroesService {
 
   getByFilter(filter?: string, page?: number, pageSize?: number, order?: string): Promise<any> {
     const heroes = this.filter(filter, page, pageSize, order);
-    return Promise.resolve({ items: heroes, hasNext: heroes.length === 10});
+    return Promise.resolve({ items: heroes, hasNext: this.heroes.length > pageSize});
   }
 
-  getByLabel(name): Promise<Hero> {
+  getByLabel(name: string): Promise<Hero> {
     name = (name || '').toLocaleLowerCase();
 
     const result = this.heroes.find(hero => hero.label.toLocaleLowerCase() === name);
@@ -49,7 +49,7 @@ export class HeroesService {
     return Promise.resolve(result);
   }
 
-  getByNickname(nickname): Promise<Hero> {
+  getByNickname(nickname: string): Promise<Hero> {
     nickname = (nickname || '').toLocaleLowerCase();
 
     const result = this.heroes.find(hero => hero.nickname.toLocaleLowerCase() === nickname);
@@ -57,7 +57,7 @@ export class HeroesService {
     return Promise.resolve(result);
   }
 
-  getFilterByNickname(nickname): Promise<any> {
+  getFilterByNickname(nickname: string): Promise<any> {
     nickname = (nickname || '').toLocaleLowerCase();
 
     const result = this.filterByProperty(nickname, this.heroes, 'nickname');
