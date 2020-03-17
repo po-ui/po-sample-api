@@ -8,8 +8,8 @@ async function bootstrap() {
   app.setGlobalPrefix('v1');
 
   const options = new DocumentBuilder()
-    .setTitle('Portinari')
-    .setDescription('Portinari Samples API')
+    .setTitle('PO UI')
+    .setDescription('PO UI - Samples API')
     .setVersion('1.0')
     .setBasePath('/v1')
     .addTag('Samples')
