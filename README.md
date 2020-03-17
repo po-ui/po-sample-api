@@ -26,7 +26,7 @@
 
 ## Description
 
-Repository for APIS used in samples of Portinari portal.
+Repository for APIS used in samples of PO UI portal.
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 

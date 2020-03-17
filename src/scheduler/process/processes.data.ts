@@ -2,8 +2,8 @@ export const processes = [
   { processID: 'process1', description: 'Release new version' },
   { processID: 'process2', description: 'Run E2E tests' },
   { processID: 'process3', description: 'Run build' },
-  { processID: 'process4', description: 'Update portinari-portal' },
-  { processID: 'process5', description: 'Clear sample database' },
+  { processID: 'process4', description: 'Update po-ui-portal' },
+  { processID: 'process5', description: 'Clear sample database' }
 ];
 
 export const parameters = {
@@ -26,7 +26,7 @@ export const parameters = {
         { value: 'templates' },
         { value: 'sync' },
         { value: 'storage' },
-        { value: 'code-editor' },
+        { value: 'code-editor' }
       ]
     },
     {
@@ -40,7 +40,7 @@ export const parameters = {
       secret: true,
       gridXlColumns: '6',
       gridLgColumns: '6'
-    },
+    }
   ],
   process2: [
     {
@@ -54,15 +54,16 @@ export const parameters = {
         { value: 'templates' },
         { value: 'sync' },
         { value: 'storage' },
-        { value: 'code-editor' },
+        { value: 'code-editor' }
       ]
-    },
+    }
   ],
   process3: [
     {
       property: 'options',
       label: 'Additional customization',
-      gridLgColumns: '12', gridXlColumns: '12',
+      gridLgColumns: '12',
+      gridXlColumns: '12',
       optionsMulti: true,
       options: [
         { value: 'installDependencies', label: 'Install dependencies' },

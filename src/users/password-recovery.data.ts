@@ -4,8 +4,7 @@ export const USER = {
   retry: '',
   smsCodeValidation: '999999',
   hash: 'xpto:999999',
-  urlChangePassword:
-    'https://portinari.io/documentation/po-page-change-password'
+  urlChangePassword: 'https://po-ui.io/documentation/po-page-change-password'
 };
 
 export const EMAIL_SUCCESS = {
@@ -13,8 +12,7 @@ export const EMAIL_SUCCESS = {
     {
       type: 'success',
       code: '204',
-      detail:
-        'Email with the password recovery link have been successfully sent'
+      detail: 'Email with the password recovery link have been successfully sent'
     }
   ]
 };
