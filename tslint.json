@@ -1,7 +1,5 @@
 {
-  "extends": [
-    "@portinari/tslint"
-  ],
+  "extends": ["@po-ui/ng-tslint"],
   "defaultSeverity": "error",
   "jsRules": {
     "no-unused-expression": true

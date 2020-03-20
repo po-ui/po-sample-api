@@ -1,9 +1,13 @@
 {
   "name": "po-sample-api",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "Repository for APIS used in samples of PO UI portal.",
+  "author": "PO",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/po-ui/po-sample-api"
+  },
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
@@ -37,7 +41,7 @@
     "@types/jest": "^24.0.18",
     "@types/node": "^12.7.5",
     "@types/supertest": "^2.0.8",
-    "@portinari/tslint": "1.0.0",
+    "@po-ui/ng-tslint": "2.0.0-beta.1",
     "jest": "^24.9.0",
     "prettier": "^1.18.2",
     "supertest": "^4.0.2",
