@@ -6,6 +6,7 @@ import { MessagesModule } from './messages/messages.module';
 import { UsersModule } from './users/users.module';
 import { FavoriteModule } from './favorite/favorite.module';
 import { SchedulerModule } from './scheduler/scheduler.module';
+import { SampleSelectModule } from './sample-select/sample-select.module';
 
 @Module({
   imports: [
@@ -14,7 +15,8 @@ import { SchedulerModule } from './scheduler/scheduler.module';
     MenusModule,
     MessagesModule,
     UsersModule,
-    SchedulerModule
+    SchedulerModule,
+    SampleSelectModule
   ]
 })
 export class AppModule {}
