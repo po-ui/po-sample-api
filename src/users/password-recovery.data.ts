@@ -8,7 +8,7 @@ export const USER = {
 };
 
 export const EMAIL_SUCCESS = {
-  totvs_messages: [
+  _messages: [
     {
       type: 'success',
       code: '204',
@@ -18,16 +18,14 @@ export const EMAIL_SUCCESS = {
 };
 
 export const EMAIL_ERROR = {
-  result: {
-    code: '404',
-    message: 'Invalid email'
-  }
+  code: '404',
+  message: 'Invalid email'
 };
 
 export const SMS_SUCCESS = {
   hash: 'xpto:999999',
   urlValidationCode: 'urlValidationCode',
-  totvs_messages: [
+  _messages: [
     {
       type: 'success',
       code: '204',
@@ -37,27 +35,24 @@ export const SMS_SUCCESS = {
 };
 
 export const SMS_ERROR = {
-  result: {
-    code: '404',
-    message: 'Invalid telephone'
-  }
+  code: '404',
+  message: 'Invalid telephone'
 };
 
 export const SMS_VALIDATION_SUCCESS = {
-  totvs_messages: [
+  _messages: [
     {
       type: 'success',
       code: 200,
-      detail: 'SMS code valid',
-      hash: 'xpto:999999',
-      urlValidationCode: 'urlValidationCode'
+      detail: 'SMS code valid'
     }
-  ]
+  ],
+  token: 'token',
+  urlChangePassword: 'https://po-ui.io/documentation/po-page-change-password'
 };
 
-export const SMS_VALIDATION_ERROR = {
-  result: {
-    code: '404',
-    message: 'Invalid Sms code, type again'
-  }
+
+export const SMS_VALIDATION_ERROR = { 
+  code: '400',
+  message: 'Invalid Sms code, type again'
 };
