@@ -8,7 +8,6 @@ import { MetadataType } from './metadata-type.enum';
 @ApiTags('people')
 @Controller('people/metadata')
 export class MetadataController {
-
   constructor(private metadataService: MetadataService) {}
 
   @ApiResponse({ status: 200, type: GetMetadataDto })
@@ -16,9 +15,7 @@ export class MetadataController {
   @ApiQuery({ name: 'type', required: true, enum: MetadataType })
   @Get()
   getMetadata(@Query() query) {
-    const { version, type } =  query;
-
+    const { version, type } = query;
     return this.metadataService.getMetadata(parseInt(version, 10), type);
   }
-
 }
