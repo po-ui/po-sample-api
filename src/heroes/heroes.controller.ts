@@ -18,6 +18,7 @@ import { CreateHeroDto } from './dto/create-hero.dto';
 export class HeroesController {
   constructor(private readonly heroesService: HeroesService) {}
 
+  @ApiResponse({ status: 404, description: 'No Data Found' })
   @ApiResponse({ status: 200, type: [CreateHeroDto] })
   @ApiQuery({name: 'filter', required: false})
   @ApiQuery({name: 'page', required: false})

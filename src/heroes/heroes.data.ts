@@ -96,3 +96,8 @@ export const HEROES = [
     email: 'lordstart@marvel.com'
   }
 ];
+
+export const NOT_FOUND = {
+  code: '404',
+  message: 'No data found'
+};

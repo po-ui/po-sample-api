@@ -1,6 +1,6 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, HttpStatus, HttpException } from '@nestjs/common';
 
-import { HEROES } from './heroes.data';
+import { HEROES, NOT_FOUND as noDataFound } from './heroes.data';
 
 import { Hero } from './interfaces/hero.interface';
 
@@ -38,6 +38,11 @@ export class HeroesService {
 
   getByFilter(filter?: string, page?: number, pageSize?: number, order?: string): Promise<any> {
     const heroes = this.filter(filter, page, pageSize, order);
+
+    if (heroes.length === 0) {
+      throw new HttpException(noDataFound, HttpStatus.NOT_FOUND);
+    }
+    
     return Promise.resolve({ items: heroes, hasNext: this.heroes.length > pageSize});
   }
 
