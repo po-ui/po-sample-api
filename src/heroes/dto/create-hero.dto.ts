@@ -9,6 +9,12 @@ export class CreateHeroDto {
   readonly label: string;
 
   @ApiProperty()
+  readonly id: number;
+
+  @ApiProperty()
+  readonly name: string;
+
+  @ApiProperty()
   readonly nickname: string;
 
   @ApiProperty()
