@@ -52,7 +52,7 @@ export class PeopleService {
      return Utils.paginate(filteredPeople, page, pageSize);
     }
 
-    return this.people;
+    return filteredPeople;
   }
 
   private filter(search?: string) {

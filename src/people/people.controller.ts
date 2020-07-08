@@ -13,13 +13,14 @@ export class PeopleController {
 
   @ApiResponse({ status: 200, type: GetPeopleDto })
   @ApiQuery({name: 'search', required: false})
+  @ApiQuery({name: 'filter', required: false})
   @ApiQuery({name: 'page', required: false})
   @ApiQuery({name: 'pageSize', required: false})
   @Get()
   getPeople(@Query() query) {
-    const { search, page, pageSize } = query;
+    const { search, filter, page, pageSize } = query;
 
-    return this.peopleService.getPeople(search, page, pageSize);
+    return this.peopleService.getPeople(search || filter, page, pageSize);
   }
 
   @ApiResponse({ status: 204 })
