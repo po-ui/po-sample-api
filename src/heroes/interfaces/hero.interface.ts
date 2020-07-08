@@ -6,6 +6,10 @@ export interface Hero {
 
   label: string;
 
+  id: number;
+
+  name: string;
+
   nickname: string;
 
   email: string;
