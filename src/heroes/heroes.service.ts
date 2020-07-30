@@ -37,43 +37,40 @@ export class HeroesService {
   }
 
   getByFilter(filter?: string, page?: number, pageSize?: number, order?: string): Promise<any> {
-    const heroes = this.filter(filter, page, pageSize, order);
+    const { heroes, hasNext } = this.filter(filter, page, pageSize, order);
 
-    if (heroes.length === 0) {
+    if (filter && heroes.length === 0) {
       throw new HttpException(noDataFound, HttpStatus.NOT_FOUND);
     }
-    
-    return Promise.resolve({ items: heroes, hasNext: this.heroes.length > pageSize});
+
+    return Promise.resolve({ items: heroes, hasNext });
   }
 
   getByLabel(name: string): Promise<Hero> {
-    name = (name || '').toLocaleLowerCase();
-
     const result = this.heroes.find(hero => hero.label.toLocaleLowerCase() === name);
 
     return Promise.resolve(result);
   }
 
   getByNickname(nickname: string): Promise<Hero> {
-    nickname = (nickname || '').toLocaleLowerCase();
-
     const result = this.heroes.find(hero => hero.nickname.toLocaleLowerCase() === nickname);
 
     return Promise.resolve(result);
   }
 
   getFilterByNickname(nickname: string): Promise<any> {
-    nickname = (nickname || '').toLocaleLowerCase();
-
     const result = this.filterByProperty(nickname, this.heroes, 'nickname');
 
     return Promise.resolve({ items: result });
   }
 
-  private filter(name: string, page?: number, pageSize?: number, order?: string) {
-    name = (name || '').toLocaleLowerCase();
+  private hasNext(items = [], pageSize = 0, page = 0) {
+    return items.length > (pageSize * page);
+  }
 
-    let heroes = this.filterByProperty(name, this.heroes, 'label');
+  private filter(filter: string, page?: number, pageSize?: number, order?: string) {
+    let heroes = this.filterByProperty(filter, this.heroes, 'label');
+    const hasNext = this.hasNext(heroes, pageSize, page);
 
     if (order) {
       heroes = this.sort(heroes, order);
@@ -83,13 +80,14 @@ export class HeroesService {
       heroes = this.paginate(heroes, page, pageSize);
     }
 
-    return heroes;
+    return { heroes, hasNext };
   }
 
   private filterByProperty(filter: string, heroes: Array<Hero>, property: string): Array<Hero> {
+    filter = (filter || '').toLocaleLowerCase();
     const result = [];
 
-    heroes.filter(hero => {
+    heroes.forEach(hero => {
       if (hero[property].toLocaleLowerCase().includes(filter)) {
         result.push(hero);
       }
