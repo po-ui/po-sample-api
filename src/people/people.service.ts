@@ -39,11 +39,12 @@ export class PeopleService {
   }
 
   save(person: People) {
-    this.people.push(person);
+    const id = new Date().getTime().toString();
+    this.people.push({ id, ...person });
   }
 
   update(id: string, updatedPeople: People) {
-    const person = this.getPeople(id);
+    const person = this.getPerson(id);
     Object.assign(person, updatedPeople);
   }
 
