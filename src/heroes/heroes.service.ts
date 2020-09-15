@@ -36,10 +36,10 @@ export class HeroesService {
     return Promise.resolve({ items: heroes });
   }
 
-  getByFilter(filter?: string, page?: number, pageSize?: number, order?: string): Promise<any> {
-    const { heroes, hasNext } = this.filter(filter, page, pageSize, order);
+  getByFilter(params: any): Promise<any> {
+    const { heroes, hasNext } = this.filter(params);
 
-    if (filter && heroes.length === 0) {
+    if (params && heroes.length === 0) {
       throw new HttpException(noDataFound, HttpStatus.NOT_FOUND);
     }
 
@@ -68,8 +68,16 @@ export class HeroesService {
     return items.length > (pageSize * page);
   }
 
-  private filter(filter: string, page?: number, pageSize?: number, order?: string) {
-    let heroes = this.filterByProperty(filter, this.heroes, 'label');
+  private filter(params: any) {
+    const { filter, page, pageSize, order, ...restParams } = params;
+    let heroes: Array<Hero> = [];
+
+    if (restParams && Object.keys(restParams).length > 0 ) {
+      heroes = this.filterByAdvancedProperty(restParams, this.heroes);
+    } else {
+      heroes = this.filterByProperty(filter, this.heroes, 'label');
+    }
+
     const hasNext = this.hasNext(heroes, pageSize, page);
 
     if (order) {
@@ -81,6 +89,21 @@ export class HeroesService {
     }
 
     return { heroes, hasNext };
+  }
+
+  private filterByAdvancedProperty(advancedFilters: any, heroes: Array<Hero>): Array<Hero> {
+    let result = [];
+
+    result = heroes.filter((item) => {
+      for (const key in advancedFilters) {
+        if (item[key] === undefined || item[key].toString() !== advancedFilters[key].toString()) {
+          return false;
+        }
+      }
+      return true;
+    });
+
+    return result;
   }
 
   private filterByProperty(filter: string, heroes: Array<Hero>, property: string): Array<Hero> {

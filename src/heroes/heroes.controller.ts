@@ -24,14 +24,14 @@ export class HeroesController {
   @ApiQuery({name: 'page', required: false})
   @ApiQuery({name: 'pageSize', required: false})
   @ApiQuery({name: 'order', required: false})
+  @ApiQuery({name: 'name', required: false})
+  @ApiQuery({name: 'nickname', required: false})
+  @ApiQuery({name: 'email', required: false})
   @Get()
   async findByFilter(
-    @Query('filter') filter?: string,
-    @Query('page') page?: number,
-    @Query('pageSize') pageSize?: number,
-    @Query('order') order?: string
+    @Query() params?: string
   ): Promise<Array<Hero>> {
-    return this.heroesService.getByFilter(filter, page, pageSize, order);
+    return this.heroesService.getByFilter(params);
   }
 
   @ApiResponse({ status: 200, type: CreateHeroDto })
