@@ -1,7 +1,7 @@
-import { Controller, Query, Body, Post } from '@nestjs/common';
+import { Controller, Query, Body, Post, Get, Res } from '@nestjs/common';
 
 import { MessagesService } from './messages.service';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('messages')
 @Controller('messages')
@@ -9,9 +9,15 @@ export class MessagesController {
 
   constructor(private readonly messagesService: MessagesService) { }
 
+  // 
+  @Get('/')
+  async getMessages(@Body() message: object, @Query() query, @Res() res) {
+    return this.messagesService.getMessages(message, query, res);
+  }
+
   @Post()
-  async getMessages(@Query('status') status: string, @Body() message: object) {
-    return this.messagesService.getMessages(status, message);
+  async postMessages(@Query('status') status: string, @Body() message: object) {
+    return this.messagesService.postMessages(status, message);
   }
 
 }
