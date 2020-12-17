@@ -9,6 +9,7 @@ import { SchedulerModule } from './scheduler/scheduler.module';
 import { SampleSelectModule } from './sample-select/sample-select.module';
 import { PeopleModule } from './people/people.module';
 import { CitiesModule } from './cities/cities.module';
+import { HotelsModule } from './hotels/hotels.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { CitiesModule } from './cities/cities.module';
     HeroesModule,
     MenusModule,
     MessagesModule,
+    HotelsModule,
     UsersModule,
     SchedulerModule,
     SampleSelectModule,

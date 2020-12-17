@@ -47,13 +47,13 @@ export class HeroesService {
   }
 
   getByLabel(name: string): Promise<Hero> {
-    const result = this.heroes.find(hero => hero.label.toLocaleLowerCase() === name);
+    const result = this.heroes.find(hero => hero.label.toLocaleLowerCase() === name.toLocaleLowerCase());
 
     return Promise.resolve(result);
   }
 
   getByNickname(nickname: string): Promise<Hero> {
-    const result = this.heroes.find(hero => hero.nickname.toLocaleLowerCase() === nickname);
+    const result = this.heroes.find(hero => hero.nickname.toLocaleLowerCase() === nickname.toLocaleLowerCase());
 
     return Promise.resolve(result);
   }
