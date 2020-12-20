@@ -79,9 +79,10 @@ export class HotelsService {
     let hotels: Array<Hotel> = [];
 
     if (restParams && Object.keys(restParams).length > 0 ) {
-      hotels = this.filterByAdvancedProperty(restParams, this.hotels);
+      const filteredHotels = this.filterByAdvancedProperty(restParams, this.hotels);
+      hotels = filter ? this.filterByProperty(filter, filteredHotels, 'name') : filteredHotels;
     } else {
-      hotels = this.filterByProperty(filter, this.hotels, 'cnpj');
+      hotels = this.filterByProperty(filter, this.hotels, 'name');
     }
 
     const hasNext = this.hasNext(hotels, pageSize, page);
@@ -102,7 +103,8 @@ export class HotelsService {
 
     result = hotels.filter((item) => {
       for (const key in advancedFilters) {
-        if (item[key] === undefined || item[key].toString() !== advancedFilters[key].toString()) {
+        if (item[key] === undefined ||
+            item[key].toString().toLocaleLowerCase() !== advancedFilters[key].toString().toLocaleLowerCase()) {
           return false;
         }
       }

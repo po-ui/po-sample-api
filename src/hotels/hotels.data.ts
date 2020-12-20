@@ -162,7 +162,7 @@ export const HOTELS = [
 {
     value: 1485976673011,
     id: 1485976673011,
-    name: "FanoanHotel",
+    name: "Fanoan Hotel",
     email: "FanoanHotelgmail.com",
     floors: "10",
     category: "Simples",
@@ -178,7 +178,7 @@ export const HOTELS = [
 {
     value: 1485976673012,
     id: 1485976673012,
-    name: "GeualsHotel",
+    name: "Geuals Hotel",
     email: "GeualsHotelgmail.com",
     floors: "10",
     category: "Luxo",
@@ -194,7 +194,7 @@ export const HOTELS = [
 {
     value: 1485976673013,
     id: 1485976673013,
-    name: "NayberHotel",
+    name: "Nayber Hotel",
     email: "NayberHotelgmail.com",
     floors: "10",
     category: "Simples",
@@ -210,7 +210,7 @@ export const HOTELS = [
 {
     value: 1485976673014,
     id: 1485976673014,
-    name: "MocoalHotel",
+    name: "Mocoal Hotel",
     email: "MocoalHotelgmail.com",
     floors: "10",
     category: "Luxo",
@@ -226,7 +226,7 @@ export const HOTELS = [
 {
     value: 1485976673015,
     id: 1485976673015,
-    name: "FafienHotel",
+    name: "Fafien Hotel",
     email: "FafienHotelgmail.com",
     floors: "10",
     category: "Simples",
