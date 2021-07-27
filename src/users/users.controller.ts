@@ -45,8 +45,14 @@ export class UsersController {
     response.status(200).send(smsValidation)
   }
 
+  @ApiResponse({ status: 204 })
+  @ApiResponse({ status: 404, description: 'Invalid credentials, type again' })
   @Post('authentication')
-  async authentication(@Body() data) {
-    return await this.authenticationService.authentication(data);
+  async authentication(@Body() data, @Res() response: Response) {
+
+    const userLogged =  await this.authenticationService.authentication(data);
+
+    response.status(200).send(userLogged)
   }
+
 }

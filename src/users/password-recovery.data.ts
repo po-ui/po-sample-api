@@ -22,6 +22,11 @@ export const EMAIL_ERROR = {
   message: 'Invalid email'
 };
 
+export const PASSWORD_ERROR = {
+  code: '404',
+  message: 'Invalid password'
+};
+
 export const SMS_SUCCESS = {
   hash: 'xpto:999999',
   urlValidationCode: 'urlValidationCode',
@@ -52,7 +57,17 @@ export const SMS_VALIDATION_SUCCESS = {
 };
 
 
-export const SMS_VALIDATION_ERROR = { 
+export const SMS_VALIDATION_ERROR = {
   code: '400',
   message: 'Invalid Sms code, type again'
+};
+
+export const USER_AUTHENTICATE = {
+  login: 'admin',
+  password: 'admin'
+};
+
+export const USER_LOGGED_SUCCESS = {
+  user: 'admin',
+  name: 'Administrador'
 };
