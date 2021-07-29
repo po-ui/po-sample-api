@@ -16,22 +16,24 @@ import { CreateHeroDto } from './dto/create-hero.dto';
 @ApiTags('heroes')
 @Controller('heroes')
 export class HeroesController {
-  constructor(private readonly heroesService: HeroesService) {}
+  constructor(private readonly heroesService: HeroesService) { }
 
   @ApiResponse({ status: 404, description: 'No Data Found' })
   @ApiResponse({ status: 200, type: [CreateHeroDto] })
-  @ApiQuery({name: 'filter', required: false})
-  @ApiQuery({name: 'page', required: false})
-  @ApiQuery({name: 'pageSize', required: false})
-  @ApiQuery({name: 'order', required: false})
-  @ApiQuery({name: 'name', required: false})
-  @ApiQuery({name: 'nickname', required: false})
-  @ApiQuery({name: 'email', required: false})
+  @ApiQuery({ name: 'filter', required: false })
+  @ApiQuery({ name: 'page', required: false })
+  @ApiQuery({ name: 'pageSize', required: false })
+  @ApiQuery({ name: 'order', required: false })
+  @ApiQuery({ name: 'name', required: false })
+  @ApiQuery({ name: 'nickname', required: false })
+  @ApiQuery({ name: 'email', required: false })
+  @ApiQuery({ name: 'value', required: false })
   @Get()
   async findByFilter(
-    @Query() params?: string
+    @Query() params?: any
   ): Promise<Array<Hero>> {
-    return this.heroesService.getByFilter(params);
+    const valuesArray = params.value ? params['value'].split(',') : params;
+    return this.heroesService.getByFilter(valuesArray);
   }
 
   @ApiResponse({ status: 200, type: CreateHeroDto })
@@ -64,7 +66,7 @@ export class HeroesController {
 
   @ApiResponse({ status: 200, description: 'Hero removido com sucesso.' })
   @ApiResponse({ status: 404, description: 'Hero removido com sucesso.' })
-  @ApiQuery({name: 'value'})
+  @ApiQuery({ name: 'value' })
   @Delete()
   async deleteHero(@Query('value') value: string): Promise<Hero> {
     return await this.heroesService.delete(value);
