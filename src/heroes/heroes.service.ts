@@ -37,13 +37,26 @@ export class HeroesService {
   }
 
   getByFilter(params: any): Promise<any> {
-    const { heroes, hasNext } = this.filter(params);
+    let result = [];
 
-    if (params && heroes.length === 0) {
+    if (params instanceof Array) {
+      params.forEach(item => {
+        this.heroes.forEach(hero => {
+          if (hero.value.toString() === item) {
+            result = [...result, hero];
+          }
+        });
+      });
+    }
+
+    const { hasNext, heroes } = this.filter(params);
+    result = result.length > 0 ? result : heroes;
+
+    if (params && result.length === 0) {
       throw new HttpException(noDataFound, HttpStatus.NOT_FOUND);
     }
 
-    return Promise.resolve({ items: heroes, hasNext });
+    return Promise.resolve({ items: result, hasNext });
   }
 
   getByLabel(name: string): Promise<Hero> {
