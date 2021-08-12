@@ -14,6 +14,6 @@ export class MetadataService {
   }
 
   private getCurrentVersion(version: number) {
-    return version < this.latestVersion ? version + this.firstVersion : this.latestVersion;
+    return 2;
   }
 }

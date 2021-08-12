@@ -6,7 +6,7 @@ export interface People {
 
   birthdate?: string;
 
-  genre?: string;
+  // genre?: string;
 
   city?: string;
 
@@ -30,7 +30,7 @@ export interface People {
 
   country?: string;
 
-  genreDescription?: string;
+  // genreDescription?: string;
 
   statusDescription?: string;
 

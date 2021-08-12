@@ -4,7 +4,7 @@ import { BeforeNewService } from './before-new.service';
 import { GetBeforeNewDto } from './dto/get-beforeNew.dto';
 
 @ApiTags('people')
-@Controller('people/before-new')
+@Controller('people/before')
 export class BeforeNewController {
   constructor(private beforeNewService: BeforeNewService) {}
 
@@ -26,5 +26,12 @@ export class BeforeNewController {
       };
     }
     return { ...beforeNew, ...messages };
+  }
+
+  @ApiResponse({ status: 200, type: GetBeforeNewDto })
+  @Post()
+  postBeforeSave() {
+    const beforeSave = this.beforeNewService.getBeforeSave();
+    return { ...beforeSave,  };
   }
 }

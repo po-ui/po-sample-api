@@ -7,7 +7,7 @@ export const metadata = [
       { property: 'id', key: true },
       { property: 'name' },
       { property: 'birthdate' },
-      { property: 'genre' },
+      // { property: 'genre' },
       { property: 'city' }
     ]
   },
@@ -15,13 +15,13 @@ export const metadata = [
     version: 2,
     type: 'list',
     title: '(M) Lista de clientes v2',
-    breadcrumb: { items: [{ label: 'Início', link: '/' }, { label: 'Cliente' }] },
+    breadcrumb: { items: [{ label: 'People' }] },
     actions: { detail: 'detail/:id', edit: 'edit/:id', new: 'new', remove: true },
     fields: [
       { property: 'id', key: true, visible: false },
       { property: 'name', filter: true, gridColumns: 6 },
       { property: 'birthdate', type: 'date', format: 'dd/MM/yyyy' },
-      { property: 'genre' },
+      // { property: 'genre' },
       { property: 'city' }
     ]
   },
@@ -55,7 +55,7 @@ export const metadata = [
         params: { transform: true }
       },
       {
-        property: 'genre',
+        // property: 'genre',
         label: 'Gênero',
         type: 'subtitle',
         width: '80px',
@@ -99,7 +99,7 @@ export const metadata = [
       { property: 'name' },
       { property: 'nickname' },
       { property: 'birthdate', label: 'Birth date' },
-      { property: 'genre' },
+      // { property: 'genre' },
       { property: 'city' },
       { property: 'country' }
     ]
@@ -108,9 +108,9 @@ export const metadata = [
     version: 2,
     type: 'detail',
     title: '(M) Detalhes do cliente v2',
-    actions: { back: false, edit: 'detail/:id' },
+    actions: { back: false, edit: 'edit/:id' },
     breadcrumb: {
-      items: [{ label: 'Início', link: '/' }, { label: 'Clientes', link: '/' }, { label: 'Detalhes' }]
+      items: [{ label: 'People', link: '/people' }, { label: 'Detalhes' }]
     },
     fields: [
       { property: 'id', key: true },
@@ -119,7 +119,7 @@ export const metadata = [
       { property: 'nickname' },
       { property: 'email', label: 'E-mail' },
       { property: 'birthdate', label: 'Birth date', type: 'date' },
-      { property: 'genre' },
+      // { property: 'genre' },
       { property: 'nationality' },
       { property: 'father', label: 'Nome do pai' },
       { property: 'mother', label: 'Nome da mãe' },
@@ -143,7 +143,7 @@ export const metadata = [
       { property: 'statusDescription', label: 'Status', tag: true, gridColumns: 2, color: 'color-10' },
       { property: 'nickname', label: 'Apelido', gridColumns: 3 },
       { property: 'birthdate', label: 'Nascimento', type: 'date', format: 'dd/MM/yyyy', gridColumns: 3 },
-      { property: 'genreDescription', label: 'Gênero', gridColumns: 3 },
+      // { property: 'genreDescription', label: 'Gênero', gridColumns: 3 },
       { property: 'nationality', label: 'Nacionalidade', gridColumns: 3 },
       { property: 'street', label: 'Rua', divider: 'Endereço', gridColumns: 6 },
       { property: 'cityName', label: 'Cidade', gridColumns: 3 },
@@ -162,7 +162,7 @@ export const metadata = [
       { property: 'name' },
       { property: 'nickname' },
       { property: 'birthdate', label: 'Nascimento' },
-      { property: 'genre' },
+      // { property: 'genre' },
       { property: 'city' },
       { property: 'country' }
     ]
@@ -171,16 +171,16 @@ export const metadata = [
     version: 2,
     type: 'create',
     title: '(M) Novo cliente v2',
-    actions: { save: '/', cancel: '/' },
-    breadcrumb: { items: [{ label: 'Início', link: '/' }, { label: 'Clientes', link: '/' }, { label: 'Novo' }] },
+    actions: { save: '/people', cancel: '/people' },
+    breadcrumb: { items: [{ label: 'People', link: '/people' }, { label: 'New' }] },
     fields: [
-      { property: 'id', key: true },
+      { property: 'id', key: true, disabled: true },
       { property: 'status', options: ['active', 'inactive'] },
       { property: 'name', required: true },
       { property: 'nickname' },
       { property: 'email', label: 'E-mail', required: true },
       { property: 'birthdate', label: 'Nascimento', type: 'date' },
-      { property: 'genre', options: ['female', 'male', 'others'] },
+      // { property: 'genre', options: ['female', 'male', 'others'] },
       { property: 'nationality' },
       { property: 'father', label: 'Nome do pai' },
       { property: 'mother', label: 'Nome da mãe' },
@@ -209,7 +209,7 @@ export const metadata = [
       { property: 'nickname', label: 'Apelido', optional: true, gridColumns: 3 },
       { property: 'birthdate', label: 'Nascimento', type: 'date', optional: true, gridColumns: 2 },
       {
-        property: 'genre',
+        // property: 'genre',
         label: 'Gênero',
         optional: true,
         gridColumns: 4,
@@ -244,7 +244,7 @@ export const metadata = [
       { property: 'name' },
       { property: 'nickname' },
       { property: 'birthdate', label: 'Birth date' },
-      { property: 'genre' },
+      // { property: 'genre' },
       { property: 'city' },
       { property: 'country' }
     ]
@@ -253,9 +253,9 @@ export const metadata = [
     version: 2,
     type: 'edit',
     title: '(M) Editando cliente v2',
-    actions: { save: '/', cancel: '/' },
+    actions: { save: '/people', cancel: '/people' },
     breadcrumb: {
-      items: [{ label: 'Início', link: '/' }, { label: 'Clientes', link: '/' }, { label: 'Editando' }]
+      items: [{ label: 'People', link: '/people' }, { label: 'Edit' }]
     },
     fields: [
       { property: 'id', label: 'User ID', key: true, disabled: true },
@@ -264,13 +264,13 @@ export const metadata = [
       { property: 'nickname' },
       { property: 'email', label: 'E-mail', required: true },
       { property: 'birthdate', label: 'Birth date', type: 'date' },
-      { property: 'genre', options: ['female', 'male', 'others'] },
+      // { property: 'genre', options: ['female', 'male', 'others'] },
       { property: 'nationality' },
-      { property: 'birthPlace', label: 'Place of birth' },
-      { property: 'graduation' },
+      // { property: 'birthPlace', label: 'Place of birth' },
+      // { property: 'graduation' },
       { property: 'father', label: 'Father`s name' },
       { property: 'mother', label: 'Mother`s name' },
-      { property: 'dependents' },
+      // { property: 'dependents' },
       { property: 'street' },
       { property: 'city' },
       { property: 'country' }
@@ -298,7 +298,7 @@ export const metadata = [
       { property: 'nickname', label: 'Apelido', optional: true, gridColumns: 3 },
       { property: 'birthdate', label: 'Nascimento', type: 'date', optional: true, gridColumns: 2 },
       {
-        property: 'genre',
+        // property: 'genre',
         label: 'Gênero',
         optional: true,
         gridColumns: 4,

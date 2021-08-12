@@ -11,8 +11,8 @@ export class CreatePeopleDto {
   @ApiPropertyOptional()
   birthdate: Date;
 
-  @ApiPropertyOptional()
-  genre: string;
+  // @ApiPropertyOptional()
+  // genre: string;
 
   @ApiPropertyOptional()
   city: string;
@@ -47,8 +47,8 @@ export class CreatePeopleDto {
   @ApiPropertyOptional()
   country: string;
 
-  @ApiPropertyOptional()
-  genreDescription: string;
+  // @ApiPropertyOptional()
+  // genreDescription: string;
 
   @ApiPropertyOptional()
   statusDescription: string;
