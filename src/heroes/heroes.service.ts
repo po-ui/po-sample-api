@@ -53,7 +53,7 @@ export class HeroesService {
     result = result.length > 0 ? result : heroes;
 
     if (params && result.length === 0) {
-      throw new HttpException(noDataFound, HttpStatus.NOT_FOUND);
+      return Promise.resolve({items: [], hasNext: false});
     }
 
     return Promise.resolve({ items: result, hasNext });
