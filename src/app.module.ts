@@ -10,6 +10,7 @@ import { SampleSelectModule } from './sample-select/sample-select.module';
 import { PeopleModule } from './people/people.module';
 import { CitiesModule } from './cities/cities.module';
 import { HotelsModule } from './hotels/hotels.module';
+import { UploadModule } from './upload/upload.module';
 
 @Module({
   imports: [
@@ -22,7 +23,8 @@ import { HotelsModule } from './hotels/hotels.module';
     SchedulerModule,
     SampleSelectModule,
     PeopleModule,
-    CitiesModule
+    CitiesModule,
+    UploadModule
   ]
 })
 export class AppModule {}
