@@ -23,4 +23,10 @@ export class CreateSchedulerDto {
   @ApiPropertyOptional()
   weekly: { daysOfWeek: Array<string>, hour: number, minute: number };
 
+  @ApiPropertyOptional()
+  rangeExecutions: {
+    frequency: { type: string, value: number },
+    rangeLimit: { day: number, hour: number, minute: number }
+  };
+
 }
