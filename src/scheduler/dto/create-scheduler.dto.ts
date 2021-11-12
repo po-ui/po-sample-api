@@ -6,6 +6,9 @@ export class CreateSchedulerDto {
   daily: { hour: number, minute: number };
 
   @ApiPropertyOptional()
+  id: string;
+
+  @ApiPropertyOptional()
   executionParameter: object;
 
   @ApiPropertyOptional()
