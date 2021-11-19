@@ -18,6 +18,12 @@ export class SchedulerController {
   }
 
   @ApiResponse({ status: 200, type: CreateSchedulerDto })
+  @Get()
+  get(@Param() params) {
+    return this.schedulerService.getScheduler(params['id']);
+  }
+
+  @ApiResponse({ status: 200, type: CreateSchedulerDto })
   @ApiParam({ name: 'id' })
   @Get(':id')
   getPerson(@Param() params) {
