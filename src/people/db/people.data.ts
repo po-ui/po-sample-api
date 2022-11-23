@@ -21,6 +21,8 @@ export const people: Array<People> = [
     statusDescription: 'Ativo',
     cityName: 'São Paulo',
     state: 'São Paulo',
+    seqItem: "1",
+    seqItemdois: "1",
     uf: 'SP',
     dependents: [
       {
@@ -81,6 +83,8 @@ export const people: Array<People> = [
     cityName: 'Joinville',
     state: 'Santa Catarina',
     uf: 'SC',
+    seqItem: "1",
+    seqItemdois: "1",
     dependents: []
   },
   {
@@ -104,6 +108,8 @@ export const people: Array<People> = [
     cityName: 'Joinville',
     state: 'Santa Catarina',
     uf: 'SC',
+    seqItem: "1",
+    seqItemdois: "1",
     dependents: []
   },
   {
@@ -127,6 +133,8 @@ export const people: Array<People> = [
     cityName: 'São Bento do Sul',
     state: 'Santa Catarina',
     uf: 'SC',
+    seqItem: "1",
+    seqItemdois: "1",
     dependents: []
   },
   {
@@ -150,6 +158,8 @@ export const people: Array<People> = [
     cityName: 'Joinville',
     state: 'Santa Catarina',
     uf: 'SC',
+    seqItem: "1",
+    seqItemdois: "1",
     dependents: []
   },
   {
@@ -173,6 +183,8 @@ export const people: Array<People> = [
     cityName: 'São Francisco do Sul',
     state: 'Santa Catarina',
     uf: 'SC',
+    seqItem: "1",
+    seqItemdois: "1",
     dependents: [
       {
         id: 109481,
@@ -204,6 +216,8 @@ export const people: Array<People> = [
     cityName: 'Araquari',
     state: 'Santa Catarina',
     uf: 'SC',
+    seqItem: "1",
+    seqItemdois: "1",
     dependents: [
       {
         id: 109483,
@@ -249,6 +263,8 @@ export const people: Array<People> = [
     cityName: 'São Paulo',
     state: 'São Paulo',
     uf: 'SP',
+    seqItem: "1",
+    seqItemdois: "1",
     dependents: []
   },
   {
@@ -272,6 +288,8 @@ export const people: Array<People> = [
     cityName: 'Campinas',
     state: 'São Paulo',
     uf: 'SP',
+    seqItem: "1",
+    seqItemdois: "1",
     dependents: []
   },
   {
@@ -295,6 +313,8 @@ export const people: Array<People> = [
     cityName: 'Osasco',
     state: 'São Paulo',
     uf: 'SP',
+    seqItem: "1",
+    seqItemdois: "1",
     dependents: []
   },
   {
@@ -318,6 +338,8 @@ export const people: Array<People> = [
     cityName: 'São Paulo',
     state: 'São Paulo',
     uf: 'SP',
+    seqItem: "1",
+    seqItemdois: "1",
     dependents: [
       {
         id: 109481,
@@ -349,6 +371,8 @@ export const people: Array<People> = [
     cityName: 'São Paulo',
     state: 'São Paulo',
     uf: 'SP',
+    seqItem: "1",
+    seqItemdois: "1",
     dependents: []
   },
   {
@@ -372,6 +396,8 @@ export const people: Array<People> = [
     cityName: 'São Paulo',
     state: 'São Paulo',
     uf: 'SP',
+    seqItem: "1",
+    seqItemdois: "1",
     dependents: []
   },
   {
@@ -395,6 +421,8 @@ export const people: Array<People> = [
     cityName: 'São Paulo',
     state: 'São Paulo',
     uf: 'SP',
+    seqItem: "1",
+    seqItemdois: "1",
     dependents: []
   },
   {
@@ -418,6 +446,8 @@ export const people: Array<People> = [
     cityName: 'São Paulo',
     state: 'São Paulo',
     uf: 'SP',
+    seqItem: "1",
+    seqItemdois: "1",
     dependents: []
   },
   {
@@ -441,6 +471,8 @@ export const people: Array<People> = [
     cityName: 'São Paulo',
     state: 'São Paulo',
     uf: 'SP',
+    seqItem: "1",
+    seqItemdois: "1",
     dependents: []
   },
   {
@@ -464,6 +496,8 @@ export const people: Array<People> = [
     cityName: 'São Paulo',
     state: 'São Paulo',
     uf: 'SP',
+    seqItem: "1",
+    seqItemdois: "1",
     dependents: []
   },
   {
@@ -487,6 +521,8 @@ export const people: Array<People> = [
     cityName: 'São Paulo',
     state: 'São Paulo',
     uf: 'SP',
+    seqItem: "1",
+    seqItemdois: "1",
     dependents: []
   },
   {
@@ -510,6 +546,8 @@ export const people: Array<People> = [
     cityName: 'Rio de Janeiro',
     state: 'Rio de Janeiro',
     uf: 'RJ',
+    seqItem: "1",
+    seqItemdois: "1",
     dependents: []
   },
   {
@@ -533,6 +571,8 @@ export const people: Array<People> = [
     cityName: 'Curitiba',
     state: 'Paraná',
     uf: 'PR',
+    seqItem: "1",
+    seqItemdois: "1",
     dependents: []
   },
   {
@@ -556,6 +596,8 @@ export const people: Array<People> = [
     cityName: 'Curitiba',
     state: 'Paraná',
     uf: 'PR',
+    seqItem: "1",
+    seqItemdois: "1",
     dependents: []
   },
   {
@@ -579,6 +621,8 @@ export const people: Array<People> = [
     cityName: 'Joinville',
     state: 'Santa Catarina',
     uf: 'SC',
+    seqItem: "1",
+    seqItemdois: "1",
     dependents: []
   },
   {
@@ -602,6 +646,8 @@ export const people: Array<People> = [
     cityName: 'Belém',
     state: 'Pará',
     uf: 'PA',
+    seqItem: "1",
+    seqItemdois: "1",
     dependents: []
   }
 ];

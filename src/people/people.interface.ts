@@ -42,4 +42,8 @@ export interface People {
 
   dependents?: Array<any>;
 
+  seqItem?: string,
+
+  seqItemdois?: string,
+
 }
