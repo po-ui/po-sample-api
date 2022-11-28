@@ -6,7 +6,7 @@
 
 Repository for APIS used in samples of PO UI portal.
 
-> https://po-sample-api.herokuapp.com/api/
+> https://po-sample-api.fly.dev/api/
 
 ## Installation
 
