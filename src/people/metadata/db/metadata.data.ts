@@ -51,6 +51,7 @@ export const metadata = [
         label: 'Cidade',
         filter: true,
         gridColumns: 6,
+        // @ts-ignore: Object is possibly 'null'.
         optionsService: this.cityService,
         params: { transform: true }
       },
