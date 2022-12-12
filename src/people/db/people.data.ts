@@ -9,7 +9,7 @@ export const people: Array<People> = [
     city: '3550308',
     status: 'active',
     nickname: 'ronaldo.filho',
-    email: 'ronaldo.f@gmail.com',
+    email: 'ronaldo.filho@gmail.com',
     nationality: 'Brazilian',
     birthPlace: 'São Paulo',
     graduation: 'College',
