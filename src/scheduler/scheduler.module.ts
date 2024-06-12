@@ -6,7 +6,7 @@ import { ProcessesController } from './process/processes.controller';
 import { ProcessesService } from './process/processes.service';
 
 @Module({
-  controllers: [SchedulerController, ProcessesController],
+  controllers: [ ProcessesController, SchedulerController ], // essa ordem é importante para o correto funcionamento da api na estrutura atual
   providers: [SchedulerService, ProcessesService]
 })
 export class SchedulerModule {}
