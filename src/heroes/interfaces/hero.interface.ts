@@ -6,11 +6,13 @@ export interface Hero {
 
   label: string;
 
-  id: number;
+  // id: number;
 
   name: string;
 
   nickname: string;
 
   email: string;
+
+  UF: string;
 }

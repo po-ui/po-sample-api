@@ -8,8 +8,8 @@ export class CreateHeroDto {
   @ApiProperty()
   readonly label: string;
 
-  @ApiProperty()
-  readonly id: number;
+  // @ApiProperty()
+  // readonly id: number;
 
   @ApiProperty()
   readonly name: string;
@@ -19,5 +19,7 @@ export class CreateHeroDto {
 
   @ApiProperty()
   readonly email: string;
+  @ApiProperty()
+  readonly UF: string;
 
 }
