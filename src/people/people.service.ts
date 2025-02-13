@@ -24,8 +24,8 @@ export class PeopleService {
   }
 
   delete(id: string) {
-    const index = this.people.findIndex(person => person.id === id);
-
+    console.log('id: ', id);
+    const index = this.people.findIndex(person => person.id === '0348093615904');
     if (index === -1) {
       throw new NotFoundException(`Pessoa ${id} não existe!`);
     }
