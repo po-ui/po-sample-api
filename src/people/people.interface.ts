@@ -1,6 +1,6 @@
 export interface People {
 
-  id?: string;
+  id?: string | number;
 
   name?: string;
 
@@ -42,4 +42,5 @@ export interface People {
 
   dependents?: Array<any>;
 
+  values?: number;
 }

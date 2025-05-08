@@ -19,12 +19,18 @@ export class PeopleService {
     };
   }
 
-  getPerson(id: string): People {
-    return this.people.find(process => process.id === id);
+  getPerson(id: number): People {
+    const numericId = +id;
+
+    const person = this.people.find((person) => {
+      return person.id === numericId;
+    });
+
+    return person;
   }
 
-  delete(id: string) {
-    const index = this.people.findIndex(person => person.id === id);
+  delete(id: number) {
+    const index = this.people.findIndex((person) => person.id === id);
 
     if (index === -1) {
       throw new NotFoundException(`Pessoa ${id} não existe!`);
@@ -43,14 +49,14 @@ export class PeopleService {
     this.people.push({ id, ...person });
   }
 
-  update(id: string, updatedPeople: People) {
+  update(id: number, updatedPeople: People) {
     const person = this.getPerson(id);
     Object.assign(person, updatedPeople);
   }
 
   private paginate(filteredPeople, page?: number, pageSize?: number) {
     if (pageSize || page) {
-     return Utils.paginate(filteredPeople, page, pageSize);
+      return Utils.paginate(filteredPeople, page, pageSize);
     }
 
     return filteredPeople;
