@@ -8,6 +8,7 @@ export const schedules: Array<Scheduler> = [
       version: '1.22.0',
       packages: ['ui']
     },
-    processID: 'process1'
+    processID: 'process1',
+    id: '1',
   }
 ];

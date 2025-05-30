@@ -14,4 +14,5 @@ export interface Scheduler {
 
   weekly?: { daysOfWeek: Array<string>, hour: number, minute: number };
 
+  id: string;
 }

@@ -6,7 +6,7 @@ import { ProcessesController } from './process/processes.controller';
 import { ProcessesService } from './process/processes.service';
 
 @Module({
-  controllers: [SchedulerController, ProcessesController],
-  providers: [SchedulerService, ProcessesService]
+  controllers: [ProcessesController, SchedulerController],
+  providers: [ProcessesService, SchedulerService]
 })
 export class SchedulerModule {}
