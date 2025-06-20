@@ -60,7 +60,12 @@ export class HeroesService {
   }
 
   getByLabel(name: string): Promise<Hero> {
-    const result = this.heroes.find(hero => hero.label.toLocaleLowerCase() === name.toLocaleLowerCase());
+    let result = this.heroes.find(hero => hero.label.toLocaleLowerCase() === name.toLocaleLowerCase());
+
+    if (!result) {  // If no hero found by label, try to find by id
+      const id = Number(name);
+      result = this.heroes.find(hero => hero.value === id);
+    }
 
     return Promise.resolve(result);
   }
