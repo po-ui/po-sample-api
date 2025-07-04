@@ -11,6 +11,7 @@ import { PeopleModule } from './people/people.module';
 import { CitiesModule } from './cities/cities.module';
 import { HotelsModule } from './hotels/hotels.module';
 import { UploadModule } from './upload/upload.module';
+import { BatchDeleteModule } from './batch-delete/batch-delete.module';
 
 @Module({
   imports: [
@@ -24,7 +25,8 @@ import { UploadModule } from './upload/upload.module';
     SampleSelectModule,
     PeopleModule,
     CitiesModule,
-    UploadModule
+    UploadModule,
+    BatchDeleteModule
   ]
 })
 export class AppModule {}
