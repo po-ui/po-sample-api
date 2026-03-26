@@ -648,7 +648,7 @@ class ODataEvaluator {
       if (value === null || value === undefined) return null;
       value = (value as Record<string, unknown>)[part];
     }
-    return value;
+    return value ?? null;
   }
 
   private resolvePropertyAccess(node: PropertyAccessNode, item: Record<string, unknown>): unknown {
@@ -1079,7 +1079,7 @@ class ODataEvaluator {
     return null;
   }
 
-  private toBoolean(value: unknown): boolean {
+  toBoolean(value: unknown): boolean {
     if (typeof value === 'boolean') return value;
     if (value === null || value === undefined) return false;
     if (typeof value === 'number') return value !== 0;
@@ -1176,7 +1176,7 @@ export function applyODataFilter<T extends Record<string, unknown>>(items: T[], 
     const ast = parser.parse(filterExpression);
     return items.filter(item => {
       const result = evaluator.evaluate(ast, item);
-      return evaluator['toBoolean'](result);
+      return evaluator.toBoolean(result);
     });
   } catch (error) {
     console.error(`Erro ao processar filtro OData: ${filterExpression}`, error);
