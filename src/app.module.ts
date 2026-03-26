@@ -12,6 +12,7 @@ import { CitiesModule } from './cities/cities.module';
 import { HotelsModule } from './hotels/hotels.module';
 import { UploadModule } from './upload/upload.module';
 import { BatchDeleteModule } from './batch-delete/batch-delete.module';
+import { EmployeesModule } from './employees/employees.module';
 
 @Module({
   imports: [
@@ -26,7 +27,8 @@ import { BatchDeleteModule } from './batch-delete/batch-delete.module';
     PeopleModule,
     CitiesModule,
     UploadModule,
-    BatchDeleteModule
+    BatchDeleteModule,
+    EmployeesModule
   ]
 })
 export class AppModule {}
