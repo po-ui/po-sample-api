@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 
+import { AiModule } from './ai/ai.module';
 import { HeroesModule } from './heroes/heroes.module';
 import { MenusModule } from './menus/menus.module';
 import { MessagesModule } from './messages/messages.module';
@@ -16,6 +17,7 @@ import { EmployeesModule } from './employees/employees.module';
 
 @Module({
   imports: [
+    AiModule,
     FavoriteModule,
     HeroesModule,
     MenusModule,
