@@ -1,6 +1,4 @@
-import { Scheduler } from './scheduler.interface';
-
-export const schedules: Array<Scheduler> = [
+export const schedules = [
   {
     firstExecution: '2020-02-26T09:30:00-03:00',
     recurrent: false,
