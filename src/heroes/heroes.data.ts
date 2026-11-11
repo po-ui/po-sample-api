@@ -1,4 +1,11 @@
-export const HEROES = [
+import { Hero } from './interfaces/hero.interface';
+
+export const HEROES: Array<Hero> = [
+  { value: 0, label: 'Heroi Zero (value 0 falsy)', id: 0, name: 'Heroi Zero', nickname: 'Zero', email: 'zero@teste.com' },
+  { value: 1, label: 'Heroi Um', id: 1, name: 'Heroi Um', nickname: 'Um', email: 'um@teste.com' },
+  { value: 2, label: 'Heroi Dois', id: 2, name: 'Heroi Dois', nickname: 'Dois', email: 'dois@teste.com' },
+  { value: 'A', label: 'Heroi A (value string)', id: 'A', name: 'Heroi A', nickname: 'A', email: 'a@teste.com' },
+  { value: '', label: 'Heroi vazio (value string vazia)', id: '', name: 'Heroi vazio', nickname: 'vazio', email: 'vazio@teste.com' },
   {
     value: 1495831666871,
     label: 'Robert Bruce Banner',

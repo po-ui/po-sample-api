@@ -37,26 +37,20 @@ export class HeroesService {
   }
 
   getByFilter(params: any): Promise<any> {
-    let result = [];
-
+    // Busca por value(s): quando o controller recebe ?value=..., params chega como Array de strings.
     if (params instanceof Array) {
-      params.forEach(item => {
-        this.heroes.forEach(hero => {
-          if (hero.value.toString() === item) {
-            result = [...result, hero];
-          }
-        });
-      });
+      const result = this.heroes.filter(hero => params.some(item => hero.value.toString() === item.toString()));
+
+      return Promise.resolve({ items: result, hasNext: false });
     }
 
     const { hasNext, heroes } = this.filter(params);
-    result = result.length > 0 ? result : heroes;
 
-    if (params && result.length === 0) {
-      return Promise.resolve({items: [], hasNext: false});
+    if (params && heroes.length === 0) {
+      return Promise.resolve({ items: [], hasNext: false });
     }
 
-    return Promise.resolve({ items: result, hasNext });
+    return Promise.resolve({ items: heroes, hasNext });
   }
 
   getByLabel(name: string): Promise<Hero> {

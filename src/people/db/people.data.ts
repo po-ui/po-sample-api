@@ -1,6 +1,79 @@
 import { People } from '../people.interface';
 
 export const people: Array<People> = [
+  // ===== DTHFUI-13768: registros de teste com variações de data (topo da lista) =====
+  // birthdate em diferentes formatos ISO para validar edição inline (AC2/AC3).
+  {
+    id: 'tz-1',
+    name: "[caso] '1985-07-22' date-only -> esperado 22/07/1985",
+    birthdate: '1985-07-22',
+    tipo: 0, tipoSem: 0, genreSem: 'male', statusSem: 'active',
+    genre: 'male', city: '3550308', status: 'active', nickname: 'caso1', email: 'caso1@teste.com',
+    cityName: 'São Paulo', state: 'São Paulo', uf: 'SP'
+  },
+  {
+    id: 'tz-2',
+    name: "[caso] '1985-07-22T00:00:00-00:00' fuso zerado -> esperado 22/07/1985",
+    birthdate: '1985-07-22T00:00:00-00:00',
+    tipo: 1, tipoSem: 1, genreSem: 'male', statusSem: 'active',
+    genre: 'male', city: '3550308', status: 'active', nickname: 'caso2', email: 'caso2@teste.com',
+    cityName: 'São Paulo', state: 'São Paulo', uf: 'SP'
+  },
+  {
+    id: 'tz-3',
+    name: "[caso] '1985-07-22T00:00:00Z' UTC/Z -> esperado 22/07/1985",
+    birthdate: '1985-07-22T00:00:00Z',
+    tipo: '', tipoSem: '', genreSem: 'male', statusSem: 'active',
+    genre: 'male', city: '3550308', status: 'active', nickname: 'caso3', email: 'caso3@teste.com',
+    cityName: 'São Paulo', state: 'São Paulo', uf: 'SP'
+  },
+  {
+    id: 'tz-4',
+    name: "[caso] '1985-07-22T00:00:00-03:00' offset -03:00 -> esperado 22/07/1985",
+    birthdate: '1985-07-22T00:00:00-03:00',
+    tipo: 0, tipoSem: 0, genreSem: 'male', statusSem: 'active',
+    genre: 'male', city: '4106902', status: 'active', nickname: 'caso4', email: 'caso4@teste.com',
+    cityName: 'Curitiba', state: 'Paraná', uf: 'PR'
+  },
+  {
+    id: 'tz-5',
+    name: "[caso] '2024-01-01T23:30:00-03:00' virada de dia -> esperado 01/01/2024",
+    birthdate: '2024-01-01T23:30:00-03:00',
+    tipo: 1, tipoSem: 1, genreSem: 'female', statusSem: 'active',
+    genre: 'female', city: '3550308', status: 'active', nickname: 'caso5', email: 'caso5@teste.com',
+    cityName: 'São Paulo', state: 'São Paulo', uf: 'SP'
+  },
+  {
+    id: 'tz-6',
+    name: "[caso] '1997-01-21T00:00:00-00:00' caso da issue -> esperado 21/01/1997",
+    birthdate: '1997-01-21T00:00:00-00:00',
+    genre: 'female', city: '3304557', status: 'active', nickname: 'caso6', email: 'caso6@teste.com',
+    cityName: 'Rio de Janeiro', state: 'Rio de Janeiro', uf: 'RJ'
+  },
+  // Offsets NÃO-LOCAIS: validam que renderizar no fuso da string (não no local)
+  // não regride para offsets diferentes do fuso do navegador.
+  {
+    id: 'tz-7',
+    name: "[caso] '2024-01-01T23:30:00+09:00' Tóquio -> esperado 01/01/2024",
+    birthdate: '2024-01-01T23:30:00+09:00',
+    genre: 'male', city: '3550308', status: 'active', nickname: 'caso7', email: 'caso7@teste.com',
+    cityName: 'São Paulo', state: 'São Paulo', uf: 'SP'
+  },
+  {
+    id: 'tz-8',
+    name: "[caso] '2024-01-01T10:00:00-05:00' Nova York -> esperado 01/01/2024",
+    birthdate: '2024-01-01T10:00:00-05:00',
+    genre: 'male', city: '3550308', status: 'active', nickname: 'caso8', email: 'caso8@teste.com',
+    cityName: 'São Paulo', state: 'São Paulo', uf: 'SP'
+  },
+  {
+    id: 'tz-9',
+    name: "[caso] '2024-01-01T12:00:00+05:30' Índia -> esperado 01/01/2024",
+    birthdate: '2024-01-01T12:00:00+05:30',
+    genre: 'male', city: '3550308', status: 'active', nickname: 'caso9', email: 'caso9@teste.com',
+    cityName: 'São Paulo', state: 'São Paulo', uf: 'SP'
+  },
+  // ===== fim dos registros de teste DTHFUI-13768 =====
   {
     id: '0148093543698',
     name: 'Ronaldo Nascimento Filho',

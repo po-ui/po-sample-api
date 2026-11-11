@@ -12,6 +12,18 @@ export interface People {
 
   status?: 'active' | 'inactive';
 
+  // DTHFUI-13319: campo de domínio primitivo (incluindo falsy 0 e '') para validar
+  // controlValueWithLabel em modo service. Aceita number | string.
+  tipo?: number | string;
+
+  // Colunas-espelho de CONTROLE (SEM controlValueWithLabel). Mesmo valor cru de
+  // genre/status/tipo, para comparar lado a lado COM x SEM no grid em modo service.
+  genreSem?: string;
+
+  statusSem?: 'active' | 'inactive';
+
+  tipoSem?: number | string;
+
   nickname?: string;
 
   email?: string;

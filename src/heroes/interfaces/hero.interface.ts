@@ -2,11 +2,11 @@
  * Heroes interface
  */
 export interface Hero {
-  value: number;
+  value: number | string;
 
   label: string;
 
-  id: number;
+  id: number | string;
 
   name: string;
 
