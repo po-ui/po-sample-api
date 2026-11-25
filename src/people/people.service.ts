@@ -19,6 +19,16 @@ export class PeopleService {
     };
   }
 
+  getPeriods(page?: string, pageSize?: string): { items: Array<People>, hasNext: boolean } {
+    const periods = this.people.filter(person => person.id.startsWith('my-'));
+    const items = this.paginate(periods, parseInt(page, 10), parseInt(pageSize, 10));
+
+    return {
+      items,
+      hasNext: periods.length > (parseInt(pageSize, 10) * parseInt(page, 10))
+    };
+  }
+
   getPerson(id: string): People {
     return this.people.find(process => process.id === id);
   }

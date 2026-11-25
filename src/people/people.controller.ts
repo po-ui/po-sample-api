@@ -56,6 +56,26 @@ export class PeopleController {
     return this.peopleService.getPeople(search || filter, page, pageSize);
   }
 
+  // DTHFUI-14204: lista só os registros de período (my-1 a my-12), para a edição inline com po-datepicker
+  // nos modos month-year e year. Declarado antes de ':id' para não ser capturado por ele.
+  @ApiResponse({ status: 200, type: GetPeopleDto })
+  @ApiQuery({name: 'page', required: false})
+  @ApiQuery({name: 'pageSize', required: false})
+  @Get('periods')
+  getPeriods(@Query() query) {
+    const { page, pageSize } = query;
+
+    return this.peopleService.getPeriods(page, pageSize);
+  }
+
+  @ApiResponse({ status: 200, type: CreatePeopleDto })
+  @ApiParam({ name: 'id' })
+  @ApiBody({ type: CreatePeopleDto })
+  @Put('periods/:id')
+  updatePeriod(@Body() person, @Param() param) {
+    this.peopleService.update(param['id'], person);
+  }
+
   @ApiResponse({ status: 204 })
   @Delete()
   deletePeople(@Body() body) {

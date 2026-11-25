@@ -54,4 +54,14 @@ export interface People {
 
   dependents?: Array<any>;
 
+  // DTHFUI-14204: períodos para validar po-datepicker nos modos month-year e year na edição inline.
+  // Cada campo guarda o model no formato esperado pela coluna (ISO Basic, ISO Extended ou sem ISO).
+  mesAnoBasic?: string;
+  mesAnoExtended?: string;
+  mesAnoSemIso?: string;
+  anoBasic?: string;
+  anoExtended?: string;
+  anoSemIso?: string;
+  mesAnoLimitado?: string;
+  mesAnoObrigatorio?: string;
 }

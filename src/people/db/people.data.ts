@@ -74,6 +74,104 @@ export const people: Array<People> = [
     cityName: 'São Paulo', state: 'São Paulo', uf: 'SP'
   },
   // ===== fim dos registros de teste DTHFUI-13768 =====
+  // ===== DTHFUI-14204: registros de teste com períodos (month-year e year) =====
+  // Mesmos casos C01 a C12 da tela de teste da grid, para validar a edição inline via t-service-api.
+  // Campos: mesAnoBasic, mesAnoExtended, mesAnoSemIso, anoBasic, anoExtended, anoSemIso, mesAnoLimitado, mesAnoObrigatorio.
+  {
+    id: 'my-1',
+    name: '[período] C01 ISO dia 01 -> esperado 10/2026 e 2026',
+    mesAnoBasic: '2026-10-01', mesAnoExtended: '2026-10-01T00:00:00-03:00', mesAnoSemIso: '10/2026',
+    anoBasic: '2026-01-01', anoExtended: '2026-01-01T00:00:00-03:00', anoSemIso: '2026',
+    mesAnoLimitado: '2026-06-01', mesAnoObrigatorio: '2026-10-01',
+    genre: 'male', city: '3550308', status: 'active', nickname: 'periodo1', email: 'periodo1@teste.com',
+    cityName: 'São Paulo', state: 'São Paulo', uf: 'SP'
+  },
+  {
+    id: 'my-2',
+    name: '[período] C02 ISO dia 15 e sem ISO 03/2026 -> esperado 10/2026, 03/2026 e 2025',
+    mesAnoBasic: '2026-10-15', mesAnoExtended: '2026-10-15T00:00:00-03:00', mesAnoSemIso: '03/2026',
+    anoBasic: '2026-05-10', anoExtended: '2026-05-10T00:00:00-03:00', anoSemIso: '2025',
+    mesAnoLimitado: '2026-03-15', mesAnoObrigatorio: '2026-03-15',
+    genre: 'female', city: '3550308', status: 'active', nickname: 'periodo2', email: 'periodo2@teste.com',
+    cityName: 'São Paulo', state: 'São Paulo', uf: 'SP'
+  },
+  {
+    id: 'my-3',
+    name: '[período] C03 Fuso Z -> esperado 10/2026 e 2026',
+    mesAnoBasic: '2026-10-01', mesAnoExtended: '2026-10-01T00:00:00Z', anoExtended: '2026-01-01T00:00:00Z',
+    mesAnoObrigatorio: '2026-10-01',
+    genre: 'male', city: '3550308', status: 'active', nickname: 'periodo3', email: 'periodo3@teste.com',
+    cityName: 'São Paulo', state: 'São Paulo', uf: 'SP'
+  },
+  {
+    id: 'my-4',
+    name: '[período] C04 Fuso -00:00 -> esperado 10/2026 e 2026',
+    mesAnoExtended: '2026-10-01T00:00:00-00:00', anoExtended: '2026-01-01T00:00:00-00:00',
+    mesAnoObrigatorio: '2026-10-01',
+    genre: 'male', city: '3550308', status: 'active', nickname: 'periodo4', email: 'periodo4@teste.com',
+    cityName: 'São Paulo', state: 'São Paulo', uf: 'SP'
+  },
+  {
+    id: 'my-5',
+    name: '[período] C05 Fuso +00:00 -> esperado 10/2026 e 2026',
+    mesAnoExtended: '2026-10-01T00:00:00+00:00', anoExtended: '2026-01-01T00:00:00+00:00',
+    mesAnoObrigatorio: '2026-10-01',
+    genre: 'male', city: '3550308', status: 'active', nickname: 'periodo5', email: 'periodo5@teste.com',
+    cityName: 'São Paulo', state: 'São Paulo', uf: 'SP'
+  },
+  {
+    id: 'my-6',
+    name: '[período] C06 Fuso +05:30 no fim do período -> esperado 10/2026 e 2026',
+    mesAnoExtended: '2026-10-31T23:00:00+05:30', anoExtended: '2026-12-31T23:00:00+05:30',
+    mesAnoObrigatorio: '2026-10-01',
+    genre: 'male', city: '3550308', status: 'active', nickname: 'periodo6', email: 'periodo6@teste.com',
+    cityName: 'São Paulo', state: 'São Paulo', uf: 'SP'
+  },
+  {
+    id: 'my-7',
+    name: '[período] C07 Virada de ano -03:00 -> esperado 12/2024 e 2024',
+    mesAnoExtended: '2024-12-31T23:00:00-03:00', anoExtended: '2024-12-31T23:00:00-03:00',
+    mesAnoObrigatorio: '2026-10-01',
+    genre: 'male', city: '3550308', status: 'active', nickname: 'periodo7', email: 'periodo7@teste.com',
+    cityName: 'São Paulo', state: 'São Paulo', uf: 'SP'
+  },
+  {
+    id: 'my-8',
+    name: '[período] C08 Virada de ano Z -> esperado 01/2025 e 2025',
+    mesAnoExtended: '2025-01-01T00:00:00Z', anoExtended: '2025-01-01T00:00:00Z',
+    mesAnoObrigatorio: '2026-10-01',
+    genre: 'male', city: '3550308', status: 'active', nickname: 'periodo8', email: 'periodo8@teste.com',
+    cityName: 'São Paulo', state: 'São Paulo', uf: 'SP'
+  },
+  {
+    id: 'my-9',
+    name: '[período] C09 Sem valor -> esperado campos vazios',
+    mesAnoObrigatorio: '2026-10-01',
+    genre: 'male', city: '3550308', status: 'active', nickname: 'periodo9', email: 'periodo9@teste.com',
+    cityName: 'São Paulo', state: 'São Paulo', uf: 'SP'
+  },
+  {
+    id: 'my-10',
+    name: '[período] C10 Obrigatório vazio -> esperado erro ao sair do campo',
+    mesAnoObrigatorio: '',
+    genre: 'male', city: '3550308', status: 'active', nickname: 'periodo10', email: 'periodo10@teste.com',
+    cityName: 'São Paulo', state: 'São Paulo', uf: 'SP'
+  },
+  {
+    id: 'my-11',
+    name: '[período] C11 Borda dos limites -> esperado 09/2026 válido e 2036 válido',
+    mesAnoLimitado: '2026-09-01', anoBasic: '2036-01-01', mesAnoObrigatorio: '2026-10-01',
+    genre: 'male', city: '3550308', status: 'active', nickname: 'periodo11', email: 'periodo11@teste.com',
+    cityName: 'São Paulo', state: 'São Paulo', uf: 'SP'
+  },
+  {
+    id: 'my-12',
+    name: '[período] C12 Fora dos limites -> esperado erro de período em 12/2025 e 2000',
+    mesAnoLimitado: '2025-12-01', anoBasic: '2000-01-01', mesAnoObrigatorio: '2026-10-01',
+    genre: 'male', city: '3550308', status: 'active', nickname: 'periodo12', email: 'periodo12@teste.com',
+    cityName: 'São Paulo', state: 'São Paulo', uf: 'SP'
+  },
+  // ===== fim dos registros de teste DTHFUI-14204 =====
   {
     id: '0148093543698',
     name: 'Ronaldo Nascimento Filho',
